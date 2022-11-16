@@ -8,8 +8,8 @@ import {Route} from 'react-router-dom'
 function App() {
   return (
     <div >
-      <SearchBar/>
       <Route exact path='/' component={Landing}/>
+      <Route path='/home' component={SearchBar}/>
       <Route exact path='/home' component={Home}/>
       <Route exact path='/home/:id'component={PokemonDetails}/>
       <Route exact path='/home/create' component={CreatePokemon}/>

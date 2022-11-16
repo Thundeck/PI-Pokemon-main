@@ -1,11 +1,12 @@
 import React from 'react'
 
-function Landing() {
+function SearchBar() {
   return (
     <div>
-        <link to='/home'>esto no se ve</link>
+      <input placeholder='Pikachu'/>
+      <button>buscar</button>
     </div>
   )
 }
 
-export default Landing
+export default SearchBar

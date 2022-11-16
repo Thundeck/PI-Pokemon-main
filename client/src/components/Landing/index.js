@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Landing() {
   return (
     <div>
-        <link to='/home'>esto no se ve</link>
+        <Link to='/home'>esto no se ve</Link>
     </div>
   )
 }
