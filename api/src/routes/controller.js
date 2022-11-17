@@ -1,6 +1,6 @@
 const axios = require('axios')
 const {API} = require('../../utils/globals.js')
-const {Pokemon, Type} = require('../db.js')
+const {Pokemon, Types} = require('../db.js')
 
 // allPokemonsApi
 
@@ -18,7 +18,7 @@ const allPokemonsApi = async ()=>{
       height:e.height,
       weight:e.weight,
       sprites:e.sprites.other.home.front_default,
-      types: e.types.length > 1 ? [e.types[0],e.types[1]] : [e.types[0]]
+      types: e.types.length > 1 ? [e.types[0].type.name,e.types[1].type.name] : [e.types[0].type.name]
     }})
     return pokemons
   }
@@ -46,7 +46,7 @@ const allPokemonsApi = async ()=>{
         name: e
       }
     }))
-    const allTypes = await Type.findAll()
+    const allTypes = await Types.findAll()
 
     return allTypes
 

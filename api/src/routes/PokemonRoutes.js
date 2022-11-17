@@ -8,32 +8,28 @@ const {Pokemon, Types} = require('../db.js');
 const pokemons = express.Router()
 
 pokemons.get('/' ,async(req,res) =>{
-    const {name} = req.query
     // console.log(await allPokemons())
-    const db = await allPokemons()
-//     if(!name){
-//     try{
-//         res.status(200).send(db)
-//     } catch(error){ res.status(400).send(error)
-//     }
-//     } else {
-//     try{
-//         const find = db.filter(e => e.name.toLowerCase() === name.toLowerCase())
-//         find.length ? res.status(200).send(find) : res.status(404).send('ocurrieron problemas')
-//     } catch(error){res.status(404).send(error)}
-// }
     try {
-        if(name){
-            const find = db?.filter(e => e.name.toLowerCase() === name.toLowerCase())
-            find.length ? res.status(200).send(find) : res.status(404).send('ocurrieron problemas')
-        }
+        const db = await allPokemons()
         res.status(200).send(db)
-        
     } catch (error) {
         res.status(404).send(error)
     }
 
 })
+
+pokemons.get('/query' ,async(req,res) =>{
+    const {name} = req.query
+
+    try{
+        const db = await allPokemons()
+        const find = db?.filter(e => e.name.toLowerCase() === name.toLowerCase())
+        find.length ? res.status(200).send(find) : res.status(404).send('ocurrieron problemas')
+    }
+    catch(error){ res.status(400).send(error)}
+})
+
+
 
 pokemons.get('/:id' ,async(req,res) =>{
     const {id} = req.params
