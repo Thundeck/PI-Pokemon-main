@@ -82,3 +82,17 @@ export const orderAttackDes = () => {
     }
 
 }
+
+export const getPokemon = (name) => async dispatch => {
+    try{
+            const api = await axios.get(`http://localhost:3001/pokemons/query?name=${name}`)
+            dispatch({
+                type: actions.GET_POKEMON,
+                payload: api.data
+            })
+        }
+    catch(error){
+     alert('Pokemon not found');
+    window.location.href = "http://localhost:3000/home";
+    console.log(error);}
+    }

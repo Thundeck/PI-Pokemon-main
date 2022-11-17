@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import {getPokemon} from '../../redux/actions'
 
 function SearchBar() {
+  const [input, setInput] = useState('')
+  const dispatch = useDispatch()
+
+  const handleInput = (e) =>{
+    setInput(e.target.value)
+  }
+
+  const handleClick = () =>{
+    dispatch(getPokemon(input))
+    setInput('')
+  }
+
   return (
-    <div>
-      <input placeholder='Pikachu'/>
-      <button>buscar</button>
-    </div>
+    <nav>
+      <input type='text' placeholder='Pikachu' onChange={(e) => handleInput(e)} />
+      <button onClick={handleClick}>buscar</button>
+    </nav>
   )
 }
 
