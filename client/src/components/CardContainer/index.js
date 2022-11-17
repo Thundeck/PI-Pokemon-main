@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Card from '../Card'
+import Filters from '../Filters';
 import Paginado from '../Paginado';
 
-function CardContainer({allPokemons}) {
+function CardContainer({allPokemons,types,allPokemonsRedux}) {
 
   const [currentPage, setCurrentPage] = useState(1)
   const pokemonsPerPage = 12
@@ -18,6 +19,7 @@ function CardContainer({allPokemons}) {
   
   return (
     <div>
+      <Filters allPokemonsRedux={allPokemonsRedux} types={types} setCurrentPage={setCurrentPage}/>
       <Paginado allPokes={allPokemons.length} pokesPerPage={pokemonsPerPage} paginado={paginado}/>
       {currentPokemons?.map(e =>{
         return(
@@ -29,6 +31,7 @@ function CardContainer({allPokemons}) {
         />
         )
       })}
+       <Paginado allPokes={allPokemons.length} pokesPerPage={pokemonsPerPage} paginado={paginado}/>
     </div>
   )
 }

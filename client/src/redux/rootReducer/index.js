@@ -4,6 +4,7 @@ const initialState = {
     allPokemons : [],
     pokemons: [],
     allTypes:[],
+    detail:{}
 
 }
 
@@ -59,7 +60,6 @@ const rootReducer = (state = initialState, action) =>{
         let des = [
             ...state.pokemons.sort((a, b) => a.attack - b.attack),
             ];
-            console.log(des)
             return {
             ...state,
             pokemons: des,
