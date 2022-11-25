@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch} from "react-redux";
 import {getAllPokemons,filterType,orderPokemonsAsc,orderPokemonsDes ,orderAttackDes,orderAttackAsc} from '../../redux/actions'
+import s from './Filter.module.css'
 
 function Filters({allPokemonsRedux,types,setCurrentPage}) {
 
@@ -8,11 +9,12 @@ function Filters({allPokemonsRedux,types,setCurrentPage}) {
 
     const handleTypeFilter = (e) =>{
         dispatch(filterType(e.target.value, allPokemonsRedux))
+        setCurrentPage(1)
         }
       
     const handleClick = () =>{
-    dispatch(getAllPokemons())
     setCurrentPage(1)
+    dispatch(getAllPokemons())
     }
     const handleOrder = (e) =>{
         if(e.target.value === "az") dispatch(orderPokemonsAsc())
@@ -20,16 +22,17 @@ function Filters({allPokemonsRedux,types,setCurrentPage}) {
         setCurrentPage(1)
         }
     
-        const handleAttack = (e) =>{
-        if(e.target.value === "az") dispatch(orderAttackAsc())
-        if(e.target.value === "za") dispatch(orderAttackDes())
-        setCurrentPage(1)
-        }
+    const handleAttack = (e) =>{
+    if(e.target.value === "az") dispatch(orderAttackAsc())
+    if(e.target.value === "za") dispatch(orderAttackDes())
+    setCurrentPage(1)
+    }
   return (
-    <section>
-    <div>
-      <p>Types</p>
-      <select onChange={(e) => handleTypeFilter(e)}>
+    <section className={s.container}>
+    <div className={s.selectContainer} >
+
+      <p className={s.p}>Types</p>
+      <select className={s.select} onChange={(e) => handleTypeFilter(e)}>
         <option value='all'>all</option>
         {types?.map(e =>{
           return <option  key={e.id} value={e.name}>{e.name}</option>
@@ -37,23 +40,26 @@ function Filters({allPokemonsRedux,types,setCurrentPage}) {
       </select>
     </div>
 
-    <div>
-      <p>Alphabetical order</p>
-      <select onChange={(e) => handleOrder(e)}>
+    <div className={s.selectContainer}>
+      <p  className={s.p}>Alphabetical</p>
+      <select className={s.select} onChange={(e) => handleOrder(e)}>
         <option>-</option>
         <option value='az' >A-Z</option>
         <option value='za'>Z-A</option>
       </select>
     </div>
-    <div>
-      <p>Order by Attack</p>
-      <select onChange={(e) => handleAttack(e)}>
+
+    <div className={s.selectContainer} >
+      <p className={s.p} >by Attack</p>
+      <select className={s.select} onChange={(e) => handleAttack(e)}>
         <option>-</option>
         <option  value='az' >Attk asc</option>
         <option  value='za'  >Attk des</option>
       </select>
     </div>
-    <button onClick={handleClick} >quitar filtros</button>
+
+    <button className={s.button} onClick={handleClick} >quitar filtros</button>
+
   </section>
   )
 }

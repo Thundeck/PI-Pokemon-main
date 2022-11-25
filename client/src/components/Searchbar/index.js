@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {getPokemon} from '../../redux/actions'
+import s from './Searchbar.module.css'
 
 function SearchBar() {
   const [input, setInput] = useState('')
@@ -16,9 +17,9 @@ function SearchBar() {
   }
 
   return (
-    <nav>
-      <input type='text' placeholder='Pikachu' onChange={(e) => handleInput(e)} />
-      <button onClick={handleClick}>buscar</button>
+    <nav className={s.nav} >
+      <input className={s.input} type='text' placeholder='Pikachu' onChange={(e) => handleInput(e)} />
+      <button className={s.button} onClick={handleClick}>buscar</button>
     </nav>
   )
 }

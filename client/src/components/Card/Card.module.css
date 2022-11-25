@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(199, 199, 199);
+    width:300px;
+    margin: 0%;
+    border-radius: 15px;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.circle{
+    border-radius: 50%;
+    background-color: var(---buttonColor);
+}
+
+.under{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: rgba(40,40,40,255);
+    width: 100%;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.text{
+    text-decoration: none;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 300px;
+    height: 300px;
+}
+
+.types{
+    width: 100%;
+    background-color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}

@@ -1,0 +1,37 @@
+:root {
+    --color: rgb(199, 33, 33);
+    --fullcolor: rgb(255, 0, 0);
+--colorHover:rgb(174, 28, 28);
+---buttonColor: #fff;
+--ligthGrey:rgb(164, 164, 164);
+--background: rgb(47, 47, 47);
+--ligthBack:rgb(67, 67, 67);
+--black:black;
+--background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+}
+
+*{
+    text-decoration: none;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    text-decoration: none;
+    background-color: var(--colorHover);
+}
+
+.link{
+    color: var(---buttonColor);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.link:hover{
+    color: var(--ligthGrey);
+}
+
+.img{
+    height: 70px;
+}

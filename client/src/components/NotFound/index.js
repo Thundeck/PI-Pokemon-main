@@ -1,9 +1,14 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import s from './notfound.module.css'
 
 function NotFound() {
   return (
-    <div>
-      <h1>Te perdiste rey?</h1>
+    <div className={s.container} >
+      <div className={s.principal}>
+        <p className={s.title}>Te perdiste rey?</p>
+        <p className={s.p} >deseas volver? <Link className={s.link} to='/home'>clickeame</Link></p>
+      </div>
     </div>
   )
 }

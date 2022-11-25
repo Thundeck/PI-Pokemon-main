@@ -1,0 +1,89 @@
+:root {
+    --color: rgb(199, 33, 33);
+    --fullcolor: rgb(255, 0, 0);
+--colorHover:rgb(174, 28, 28);
+---buttonColor: #fff;
+--veryligthGrey:rgb(204, 204, 204);
+--ligthGrey:rgb(164, 164, 164);
+--background: rgb(47, 47, 47);
+--ligthBack:rgb(67, 67, 67);
+--black:black;
+--background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-image: url('../../img/details.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.infoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.infoContainer img{
+    margin-top: 20px;
+    border-radius: 15px;
+    height: 400px;
+    background-color: var(--ligthBack) ;
+}
+
+.infoContainerdiv{
+    margin-top: 10px;
+    margin-bottom: 0%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    height: 40px;
+    width: 380px;
+    background-color: var(--color);
+    border-radius: 10px 10px 0px 0px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+
+}
+
+.infoContainerh2{
+    margin-top: 0%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    height: 40px;
+    width: 380px;
+    color: var(--ligthBack);
+    background-color: var(---buttonColor);
+    border-radius: 0px 0px 10px 10px;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+
+}
+
+.stats{
+    background-color: var(--ligthBack);
+    border: none;
+    border-radius: 15px;
+    height: fit-content;
+    padding: 10px;
+    width: 600px;
+    gap: 3px;
+}
+
+.stats p {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0%;
+    color: var(---buttonColor);
+    letter-spacing: 1px;
+}
+
+.stats ul {
+    color: var(---buttonColor);
+    list-style-type: none;
+    font-size: 1.2rem;
+}

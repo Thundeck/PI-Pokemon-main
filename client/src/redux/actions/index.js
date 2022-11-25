@@ -31,7 +31,7 @@ export const getAllTypes = () => async dispatch => {
 // }
 
 export function filterType(type,all){
-    const filtered = type === 'all' ? all : all.filter(e => e.types.some(e => e === type));
+    const filtered = type === 'all' ? all : all.filter(e => e.types.some(e => e.name === type));
 
     return{
         type: actions.FILTER_BY_TYPE,
@@ -86,6 +86,7 @@ export const orderAttackDes = () => {
 export const getPokemon = (name) => async dispatch => {
     try{
             const api = await axios.get(`http://localhost:3001/pokemons/query?name=${name}`)
+            console.log(api.data)
             dispatch({
                 type: actions.GET_POKEMON,
                 payload: api.data
@@ -93,6 +94,43 @@ export const getPokemon = (name) => async dispatch => {
         }
     catch(error){
      alert('Pokemon not found');
-    window.location.href = "http://localhost:3000/home";
     console.log(error);}
     }
+
+    export const getDetails = (id) => async dispatch => {
+        try{
+                const api = await axios.get(`http://localhost:3001/pokemons/`+id)
+                console.log(api.data)
+                dispatch({
+                    type: actions.GET_POKEMON_DETAILS,
+                    payload: api.data
+                })
+            }
+        catch(error){ 
+            console.log(error)}
+    }
+
+    export const createPokemon = (form) => async () => {
+        if(!form.sprites){
+            form.sprites = "https://marriland.com/wp-content/plugins/marriland-core/images/pokemon/sprites/home/full/unown-question.png"
+        }
+        let newPokemon = {
+            sprites:form.sprites,
+            name:form.name,
+            health:form.health,
+            attack:form.attack,
+            defense:form.defense,
+            speed:form.speed,
+            heigth:form.heigth,
+            weigth:form.weigth,
+            types:form.types
+        }
+        try{
+                const api = await axios.post(`http://localhost:3001/pokemons`, newPokemon ).then(alert("Pokemon creado  con exito"))
+            }
+        catch(error){ 
+            console.log(error)}
+    }
+
+
+

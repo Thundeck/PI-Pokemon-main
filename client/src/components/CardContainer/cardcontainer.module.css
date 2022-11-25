@@ -1,0 +1,28 @@
+:root{
+    --color: rgb(199, 33, 33);
+    --colorHover:rgb(174, 28, 28);
+    ---buttonColor: #fff;
+    --ligthGrey:rgb(164, 164, 164);
+    --background: rgb(47, 47, 47);
+    --ligthBack:rgb(67, 67, 67);
+    --black:black;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+    background-color: rgb(232, 233, 234);
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}

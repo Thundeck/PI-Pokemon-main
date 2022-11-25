@@ -10,10 +10,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true
     },
-    img: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: 'unown-question.png'
+    sprites: {
+      type: DataTypes.STRING
     },
     name: {
       type: DataTypes.STRING,

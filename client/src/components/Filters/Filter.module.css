@@ -1,0 +1,90 @@
+
+:root {
+        --color: rgb(199, 33, 33);
+        --fullcolor: rgb(255, 0, 0);
+    --colorHover:rgb(174, 28, 28);
+    ---buttonColor: #fff;
+    --ligthGrey:rgb(164, 164, 164);
+    --background: rgb(47, 47, 47);
+    --ligthBack:rgb(67, 67, 67);
+    --black:black;
+    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  }
+
+.container{
+    margin: 0%;
+    background-color: var(--colorHover);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+.p{
+    color: var(---buttonColor);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+  
+  .select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: var(--color);
+    background-image: none;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  /* Remove IE arrow */
+  .select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .selectContainer {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 20em;
+    height: 2.5em;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+  /* Arrow */
+  .selectContainer::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
+  .selectContainer:hover::after {
+    color: var(---buttonColor);
+  }
+
+  .button{
+    margin: 0%;
+    width: 20em;
+    border: none;
+    border-radius: .25em;
+    color: var(---buttonColor);
+    background-color: var(--color);
+    height: 2.8em;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.4s all ease;
+  }
+
+  .button:hover{
+    background-color: var(---buttonColor);
+    color: var(--color);
+  }
+  

@@ -64,6 +64,11 @@ const rootReducer = (state = initialState, action) =>{
             ...state,
             pokemons: des,
             };
+        case actions.GET_POKEMON_DETAILS:
+        return{
+            ...state,
+            detail: action.payload,
+        }
     
         default: return state
     }

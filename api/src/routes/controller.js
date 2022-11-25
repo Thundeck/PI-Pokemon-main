@@ -18,7 +18,7 @@ const allPokemonsApi = async ()=>{
       height:e.height,
       weight:e.weight,
       sprites:e.sprites.other.home.front_default,
-      types: e.types.length > 1 ? [e.types[0].type.name,e.types[1].type.name] : [e.types[0].type.name]
+      types: e.types.length > 1 ? [{name:e.types[0].type.name},{name:e.types[1].type.name}] : [{name:e.types[0].type.name}]
     }})
     return pokemons
   }

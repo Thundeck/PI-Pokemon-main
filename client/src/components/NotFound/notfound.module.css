@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+.container{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin: 0%;
+    height: 700px;
+    width: 100%;
+    background-image: url('../../img/pokemonpregunta.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.principal{
+    margin: 400px 0 0 20px;
+}
+
+.title{
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.p{
+    font-size: 1.5rem;
+    font-family: 'Fredoka One', cursive;
+    height: 5em;
+}
+
+.link{
+    background-color: #14323c;
+}
+
+.link{
+    margin: 0%;
+    width: 20em;
+    padding: 15px;
+    border: none;
+    border-radius: 0.25em;
+    color: var(---buttonColor);
+    background-color: #14323c;
+    font-family: 'Fredoka One', cursive;
+    height: 4em;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s all ease;
+  }
+
+  .link:hover{
+    background-color: var(---buttonColor);
+    color: #14323c;
+  }

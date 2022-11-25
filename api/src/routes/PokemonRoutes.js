@@ -9,6 +9,7 @@ const pokemons = express.Router()
 
 pokemons.get('/' ,async(req,res) =>{
     // console.log(await allPokemons())
+    let typesDB = await Types.findAll()
     try {
         const db = await allPokemons()
         res.status(200).send(db)
@@ -35,16 +36,21 @@ pokemons.get('/:id' ,async(req,res) =>{
     const {id} = req.params
     try{
         const db = await allPokemons()
+        if(id.length < 5){
        const found = db?.filter(e => Number(e.id) === Number(id))
-       found.length ? res.status(200).send(found) : res.status(404).send('seguro que es el ID correcto?')
+       found.length ? res.status(200).send(found[0]) : res.status(404).send('seguro que es el ID correcto?')
+        } else{
+            const found = db?.filter(e => e.id == id)
+       found.length ? res.status(200).send(found[0]) : res.status(404).send(id)
+
+        }
     }
     catch(error){ res.status(400).send(error)}
 })
 
 pokemons.post('/' ,async(req,res) =>{
     const {
-      id,
-      img,
+      sprites,
       name,
       health,
       attack,
@@ -55,22 +61,24 @@ pokemons.post('/' ,async(req,res) =>{
       types} = req.body
       try{
         let newPokemon = await Pokemon.create({
-            id,
-            img,
+            sprites,
             name,
             health,
             attack,
             defense,
             speed,
             heigth,
-            weigth,
-            types
+            weigth
         })
-    
-        let typesDB = await Types.findAll()
-        const newPokemonTypes = typesDB.filter(e => e == types[0] || e === types[1])
-        newPokemon.addTypes(newPokemonTypes)
-        res.send('El pokemon ha sido creado con éxito')
+
+        const typesDB = await Types.findAll({
+            where:{
+                name:types
+            }
+        })
+
+        newPokemon.addTypes(typesDB)
+        res.send(req.body)
       } catch(error){ res.status(400).send(error)}
 })
 
