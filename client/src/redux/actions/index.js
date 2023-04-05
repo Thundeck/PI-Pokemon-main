@@ -86,7 +86,6 @@ export const orderAttackDes = () => {
 export const getPokemon = (name) => async dispatch => {
     try{
             const api = await axios.get(`http://localhost:3001/pokemons/query?name=${name}`)
-            console.log(api.data)
             dispatch({
                 type: actions.GET_POKEMON,
                 payload: api.data
@@ -100,7 +99,6 @@ export const getPokemon = (name) => async dispatch => {
     export const getDetails = (id) => async dispatch => {
         try{
                 const api = await axios.get(`http://localhost:3001/pokemons/`+id)
-                console.log(api.data)
                 dispatch({
                     type: actions.GET_POKEMON_DETAILS,
                     payload: api.data
@@ -121,16 +119,22 @@ export const getPokemon = (name) => async dispatch => {
             attack:form.attack,
             defense:form.defense,
             speed:form.speed,
-            heigth:form.heigth,
-            weigth:form.weigth,
+            height:form.height,
+            weight:form.height,
             types:form.types
         }
         try{
                 const api = await axios.post(`http://localhost:3001/pokemons`, newPokemon ).then(alert("Pokemon creado  con exito"))
+                return api
             }
         catch(error){ 
             console.log(error)}
     }
 
+    export const deleteDetail = ()=> {
+        return{
+            type: actions.DELETE_DETAIL,
+            payload: {}
+        }
 
-
+    }

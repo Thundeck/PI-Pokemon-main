@@ -21,8 +21,8 @@ function CreatePokemon() {
     attack:'',
     defense:'',
     speed:'',
-    heigth:'',
-    weigth:'',
+    height:'',
+    weight:'',
     types:[]
   }
 
@@ -34,8 +34,8 @@ function CreatePokemon() {
     attack:true,
     defense:true,
     speed:true,
-    heigth:true,
-    weigth:true,
+    height:true,
+    weight:true,
     types:true
   })
 
@@ -71,7 +71,6 @@ function CreatePokemon() {
   const hanldeSubmit = (e) =>{
     e.preventDefault()
     validates(form, setError)
-    console.log(form)
      if(validates(form, setError)) dispatch(createPokemon(form))
     setForm(defaultForm)
   }
@@ -89,7 +88,7 @@ function CreatePokemon() {
       <div className={s.div} >
         <label className={s.labels} >Pokemon name</label>
         <input autoComplete='off' type='text' placeholder='Mew..' value={form.name} className={s.input} name='name' onChange={(e) => handleChange(e)}/>
-        <ul hidden={error.name && error.name}>
+        <ul hidden={error.name}>
           <p>debe contener entre 4 a 30 caracteres</p>
           <p>el unico simbolo permitido es el guion</p>
         </ul>
@@ -99,7 +98,6 @@ function CreatePokemon() {
         <h3>Types</h3>
         <ul hidden={error.types}>
           <p>no se deben repetir los tipos</p> 
-          {/* //darle color cuando es true o false */}
           <p>solo se permiten maximo dos tipos</p>
         </ul>
         <div className={s.selectArea}>
@@ -137,21 +135,21 @@ function CreatePokemon() {
 
       <div className={s.div}>
       <h3>Body</h3>
-      <ul hidden={error.heigth || error.weigth}>
+      <ul hidden={error.height || error.weight}>
           <p>solo se permite ingresar valores numericos(0-9)</p>
           <p>el valor min es 0.1 y el max 999.9</p>
       </ul>
       <label>Height</label>
-      <input autoComplete='off' className={s.input} placeholder='225..' type='text' value={form.heigth} name='heigth' onChange={(e) => handleChange(e)}/>
+      <input autoComplete='off' className={s.input} placeholder='225..' type='text' value={form.height} name='height' onChange={(e) => handleChange(e)}/>
       <label>Weight</label>
-      <input autoComplete='off' className={s.input} placeholder='225..' type='text' value={form.weigth} name='weigth' onChange={(e) => handleChange(e)}/>
+      <input autoComplete='off' className={s.input} placeholder='225..' type='text' value={form.weight} name='weight' onChange={(e) => handleChange(e)}/>
       </div>
 
       <div className={s.div}>
-      <div className={s.imgConatainer}>
-        <span className={s.label}>Pokemon image</span>
-        <input className={s.img} type='file' value={form.sprites} name='sprites' onChange={(e) => handleChange(e)}/>
-      </div>
+        <div className={s.imgConatainer}>
+          <span className={s.label}>Pokemon image</span>
+          <input className={s.img} type='file' value={form.sprites} name='sprites' onChange={(e) => handleChange(e)}/>
+        </div>
       </div>
 
 

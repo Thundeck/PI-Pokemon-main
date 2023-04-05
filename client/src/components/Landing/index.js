@@ -5,7 +5,7 @@ import s from './Landing.module.css'
 function Landing() {
   return (
     <div  className={s.landing} >
-      <Link className={s.start} to='/home'> esto no se ve</Link>
+      <Link className={s.start} to='/home'>Let's play pokemon</Link>
     </div>
   )
 }

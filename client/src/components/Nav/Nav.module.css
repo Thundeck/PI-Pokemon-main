@@ -21,6 +21,7 @@
     flex-direction: row;
     text-decoration: none;
     background-color: var(--colorHover);
+    padding: 10px;
 }
 
 .link{

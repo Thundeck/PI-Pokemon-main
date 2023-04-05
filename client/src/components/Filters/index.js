@@ -3,9 +3,11 @@ import { useDispatch} from "react-redux";
 import {getAllPokemons,filterType,orderPokemonsAsc,orderPokemonsDes ,orderAttackDes,orderAttackAsc} from '../../redux/actions'
 import s from './Filter.module.css'
 
-function Filters({allPokemonsRedux,types,setCurrentPage}) {
+function Filters({allPokemonsRedux,allPokemons,types,setCurrentPage}) {
 
     const dispatch = useDispatch()
+
+
 
     const handleTypeFilter = (e) =>{
         dispatch(filterType(e.target.value, allPokemonsRedux))
@@ -58,7 +60,7 @@ function Filters({allPokemonsRedux,types,setCurrentPage}) {
       </select>
     </div>
 
-    <button className={s.button} onClick={handleClick} >quitar filtros</button>
+    {allPokemons !== allPokemonsRedux && <button className={s.button} onClick={handleClick} >delete filters</button>}
 
   </section>
   )

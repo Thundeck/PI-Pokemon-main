@@ -1,25 +1,39 @@
+
+
 .landing {
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
-    background-image: url('https://64.media.tumblr.com/5636a71fbff0658a6d8babf33f267f67/tumblr_p0d5mg9vGf1wjj45go1_250.gifv');
+    position: relative;
+    background-image: url('../../img/landing.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
   }
-  
-  .start {
-    margin-top: 410px;
-    margin-left: 300px;
-    height: 60px;
-    width: 500px;
-    background-color: transparent;
-    color: transparent;
+
+  .start{
+    position: absolute;
+    top: 500px;
+    left: 500px;
+    margin: 0%;
+    width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     border: none;
+    border-radius: 0.25em;
+    color: var(---buttonColor);
+    background-color: var(--landingColor);
+    height: 2em;
+    font-size: 2rem;
     cursor: pointer;
+    transition: 0.4s all ease;
+    padding: 5px;
+    font-family: 'Fredoka One', cursive;
   }
-  
-  .start:hover {
-    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); ;
+
+  .start:hover{
+    background-color: var(---buttonColor);
+    color: var(--landingColor);
   }

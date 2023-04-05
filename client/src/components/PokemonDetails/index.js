@@ -1,22 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getDetails} from '../../redux/actions'
-import defaultImg from '../../img/defaultImg.png'
+import {getDetails, deleteDetail} from '../../redux/actions'
 import s from './detail.module.css'
-import '../types/types.css'
-import Types from '../types'
+import t from '../types/types.module.css'
 
 function PokemonDetails({match}) {
 
   const dispatch = useDispatch()
   const {id,name,types,sprites,attack,defense,health,height,speed,weight} = useSelector(state => state.detail)
 
-  sprites && console.log({sprites})
-
   useEffect(() =>{
     const id = match.params.id
     dispatch(getDetails(id))
   },[dispatch,match.params.id])
+
+  useEffect(() =>{
+    return () => dispatch(deleteDetail())
+  },[dispatch])
+
+  console.log(height)
+
   return (
     <div className={s.container} >
 
@@ -39,9 +42,10 @@ function PokemonDetails({match}) {
 
         <div className={s.stats} >
           <p>Types</p>
-            {types?.map(e => {
-              return Types(e.name)
-            })}
+          { types?.map((e,index) => {return(
+          <div key={index} className={`${t.pkmtype} ${t[e.name]}`} >
+              <span>{e.name}</span>
+            </div>)})}
         </div>
 
         <div className={s.stats} >

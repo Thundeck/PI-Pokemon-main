@@ -5,8 +5,8 @@ const validates = ({
     attack,
     defense,
     speed,
-    heigth,
-    weigth,
+    height,
+    weight,
     types
   },setError) =>{
     let stats = {
@@ -14,8 +14,8 @@ const validates = ({
       attack: Number(attack),
       defense: Number(defense),
       speed: Number(speed),
-      heigth: Number(heigth),
-      weigth: Number(weigth),
+      height: Number(height),
+      weight: Number(weight),
 
     }
     let validated = true
@@ -25,8 +25,8 @@ const validates = ({
         attack:true,
         defense:true,
         speed:true,
-        heigth:true,
-        weigth:true,
+        height:true,
+        weight:true,
         types:true
       }
     //name
@@ -67,17 +67,17 @@ const validates = ({
         validated = false
       }
     // heigth
-    if(typeof stats.heigth === 'number' && stats.heigth >= 0.1 && stats.heigth <= 200 ){
-        error = {...error, heigth: true}
+    if(typeof stats.height === 'number' && stats.height >= 0.1 && stats.height <= 200 ){
+        error = {...error, height: true}
       } else{
-        error = {...error, heigth: false}
+        error = {...error, height: false}
         validated = false
       }
     // weigth
-    if(typeof stats.weigth === 'number' && stats.weigth > 0.1 && stats.weigth <= 999.9 ){
-        error = {...error, weigth: true}
+    if(typeof stats.weight === 'number' && stats.weight > 0.1 && stats.weight <= 999.9 ){
+        error = {...error, weight: true}
       } else{
-        error = {...error, weigth: false}
+        error = {...error, weight: false}
         validated = false
       }
     // types

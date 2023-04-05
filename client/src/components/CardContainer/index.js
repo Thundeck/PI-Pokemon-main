@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 import s from './cardcontainer.module.css'
 
 function CardContainer({allPokemons,types,allPokemonsRedux}) {
-  types && console.log(types)
 
   const [currentPage, setCurrentPage] = useState(1)
   const pokemonsPerPage = 12
@@ -22,13 +21,14 @@ function CardContainer({allPokemons,types,allPokemonsRedux}) {
   
   return (
     <div className={s.container}>
-      <Filters allPokemonsRedux={allPokemonsRedux} types={types} setCurrentPage={setCurrentPage}/>
-      <Paginado allPokes={allPokemons.length} pokesPerPage={pokemonsPerPage} paginado={paginado}/>
+      <Filters allPokemonsRedux={allPokemonsRedux} allPokemons={allPokemons} types={types} setCurrentPage={setCurrentPage}/>
+      <Paginado allPokes={allPokemons.length} pokesPerPage={pokemonsPerPage} paginado={paginado} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
       <div className={s.cards}>
       {currentPokemons?.map(e =>{
         return(
-          <Link to={`/home/${e.id}`} key={e.name}>
+          <Link to={`/home/${e.id}`} key={e.id}>
             <Card
+            key={e.id}
             name={e.name}
             img={e.sprites}
             types={e.types}

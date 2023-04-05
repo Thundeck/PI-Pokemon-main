@@ -19,7 +19,7 @@ function SearchBar() {
   return (
     <nav className={s.nav} >
       <input className={s.input} type='text' placeholder='Pikachu' onChange={(e) => handleInput(e)} />
-      <button className={s.button} onClick={handleClick}>buscar</button>
+      <button className={s.button} onClick={handleClick}>Search</button>
     </nav>
   )
 }

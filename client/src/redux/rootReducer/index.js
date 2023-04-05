@@ -69,6 +69,11 @@ const rootReducer = (state = initialState, action) =>{
             ...state,
             detail: action.payload,
         }
+        case actions.DELETE_DETAIL:
+            return{
+                ...state,
+                detail: action.payload,
+            }
     
         default: return state
     }
